@@ -25,7 +25,7 @@ Edit the Status column. Only APPROVE items are acted on.
 ## Content / AEO
 | ID | Change | Status |
 |---|---|---|
-| B-3 | Add bulleted "Details" spec block to each product (you supply dimensions/materials; I draft) | PENDING |
+| B-3 | (+E-1) Add bulleted "Details" spec block plus shipping estimate and returns line near add-to-cart (you supply dimensions/materials; I draft) | PENDING |
 | B-4 | State edition size / numbering on products | PENDING |
 | C-1 | Add answer-first intro, byline and updated date to 3 guide pages, link to products | PENDING |
 | C-5 | Verify/draft plain-language shipping & returns policy copy | PENDING |
@@ -40,3 +40,8 @@ Edit the Status column. Only APPROVE items are acted on.
 | ID | Change | Status |
 |---|---|---|
 | C-6 | Reviews near add-to-cart post-launch | DEFER 2027-01-15 |
+
+## GEO (new W42)
+| ID | Change | Status |
+|---|---|---|
+| E-2 | Post-launch: set up Google Merchant Center feed via Shopify; defer ChatGPT feed application | PENDING |

@@ -3,10 +3,113 @@
   "last_prune_audit": null,
   "next_prune_audit_due": "2026-12-09",
   "sources": [
-    {"id":"r001","url":"https://baymard.com/learn/ecommerce-ux-audit","title":"Ecommerce UX Audit: How to Find What's Hurting Your Conversion","publisher":"Baymard Institute","category":"UX/UI","reliability":"primary","first_used":"2026-W41","last_confirmed":"2026-10-09","status":"active","takeaway":"Checkout and shipping/tax surprises are leading abandonment drivers; audit against heuristics."},
-    {"id":"r002","url":"https://shopaccino.com/blog/ecommerce-ux-that-converts-the-ultimate-2026-guide","title":"Ecommerce UX That Converts: 2026 Guide","publisher":"Shopaccino","category":"UX/UI","reliability":"vendor","first_used":"2026-W41","last_confirmed":"2026-10-09","status":"active","takeaway":"Reviews near add-to-cart, guest checkout, free-shipping progress."},
-    {"id":"r003","url":"https://helloretail.com/en/blog/geo-for-ecommerce-guide/","title":"GEO for ecommerce: How to get your products cited by AI search engines","publisher":"Hello Retail","category":"GEO","reliability":"vendor","first_used":"2026-W41","last_confirmed":"2026-10-09","status":"active","takeaway":"Complete Product schema, crawlable pages, answer-first copy."},
-    {"id":"r004","url":"https://www.thirdandgrove.com/insights/aeo-geo-playbook-shopify-brands/","title":"AEO/GEO playbook for Shopify brands","publisher":"Third & Grove","category":"AEO/GEO","reliability":"vendor","first_used":"2026-W41","last_confirmed":"2026-10-09","status":"active","takeaway":"Brand-owned FAQs, policies, sizing guides are what AI cites."},
-    {"id":"r005","url":"https://www.sparq.ai/blogs/generative-engine-optimization-shopify","title":"Generative Engine Optimization for Shopify","publisher":"Sparq","category":"GEO","reliability":"vendor","first_used":"2026-W41","last_confirmed":"2026-10-09","status":"active","takeaway":"Allow AI crawlers (OAI-SearchBot etc.); claims unverified by OpenAI docs."}
+    {
+      "id": "r001",
+      "url": "https://baymard.com/learn/ecommerce-ux-audit",
+      "title": "Ecommerce UX Audit: How to Find What's Hurting Your Conversion",
+      "publisher": "Baymard Institute",
+      "category": "UX/UI",
+      "reliability": "primary",
+      "first_used": "2026-W41",
+      "last_confirmed": "2026-10-09",
+      "status": "active",
+      "takeaway": "Checkout and shipping/tax surprises are leading abandonment drivers; audit against heuristics."
+    },
+    {
+      "id": "r002",
+      "url": "https://shopaccino.com/blog/ecommerce-ux-that-converts-the-ultimate-2026-guide",
+      "title": "Ecommerce UX That Converts: 2026 Guide",
+      "publisher": "Shopaccino",
+      "category": "UX/UI",
+      "reliability": "vendor",
+      "first_used": "2026-W41",
+      "last_confirmed": "2026-10-09",
+      "status": "active",
+      "takeaway": "Reviews near add-to-cart, guest checkout, free-shipping progress."
+    },
+    {
+      "id": "r003",
+      "url": "https://helloretail.com/en/blog/geo-for-ecommerce-guide/",
+      "title": "GEO for ecommerce: How to get your products cited by AI search engines",
+      "publisher": "Hello Retail",
+      "category": "GEO",
+      "reliability": "vendor",
+      "first_used": "2026-W41",
+      "last_confirmed": "2026-10-09",
+      "status": "active",
+      "takeaway": "Complete Product schema, crawlable pages, answer-first copy."
+    },
+    {
+      "id": "r004",
+      "url": "https://www.thirdandgrove.com/insights/aeo-geo-playbook-shopify-brands/",
+      "title": "AEO/GEO playbook for Shopify brands",
+      "publisher": "Third & Grove",
+      "category": "AEO/GEO",
+      "reliability": "vendor",
+      "first_used": "2026-W41",
+      "last_confirmed": "2026-10-09",
+      "status": "active",
+      "takeaway": "Brand-owned FAQs, policies, sizing guides are what AI cites."
+    },
+    {
+      "id": "r005",
+      "url": "https://www.sparq.ai/blogs/generative-engine-optimization-shopify",
+      "title": "Generative Engine Optimization for Shopify",
+      "publisher": "Sparq",
+      "category": "GEO",
+      "reliability": "vendor",
+      "first_used": "2026-W41",
+      "last_confirmed": "2026-10-09",
+      "status": "active",
+      "takeaway": "Allow AI crawlers (OAI-SearchBot etc.); claims unverified by OpenAI docs."
+    },
+    {
+      "id": "r006",
+      "url": "https://ecommercefastlane.com/what-makes-a-high-converting-shopify-product-page/",
+      "title": "What Makes a High-Converting Shopify Product Page?",
+      "publisher": "Ecommerce Fastlane",
+      "category": "UX/UI",
+      "reliability": "vendor",
+      "first_used": "2026-10-18",
+      "last_confirmed": "2026-10-18",
+      "status": "active",
+      "takeaway": "PDP should answer 5 buyer questions: what, total cost, fit, arrival, what if wrong."
+    },
+    {
+      "id": "r007",
+      "url": "https://www.lengow.com/get-to-know-more/google-ai-shopping",
+      "title": "ChatGPT Product Feed (2026) specification",
+      "publisher": "Lengow",
+      "category": "GEO",
+      "reliability": "vendor",
+      "first_used": "2026-10-18",
+      "last_confirmed": "2026-10-18",
+      "status": "active",
+      "takeaway": "Feed quality matters more than enrolment; ChatGPT feed is push-based and needs 9 required fields; unverified vs OpenAI docs."
+    },
+    {
+      "id": "r008",
+      "url": "https://www.nudgenow.com/blogs/llm-seo-ecommerce-brands",
+      "title": "LLM SEO for ecommerce brands",
+      "publisher": "Nudge",
+      "category": "AEO/GEO",
+      "reliability": "vendor",
+      "first_used": "2026-10-18",
+      "last_confirmed": "2026-10-18",
+      "status": "active",
+      "takeaway": "No independent evidence llms.txt raises citations; AI traffic stats unverified; reviews/community drive citations."
+    },
+    {
+      "id": "r009",
+      "url": "https://www.triplewhale.com/blog/ai-in-ecommerce-statistics.md",
+      "title": "AI in Ecommerce Statistics",
+      "publisher": "Triple Whale",
+      "category": "AEO/GEO",
+      "reliability": "vendor",
+      "first_used": "2026-10-18",
+      "last_confirmed": "2026-10-18",
+      "status": "active",
+      "takeaway": "Reddit ~29% of third-party AI citations; Ahrefs: <9% of AI citations come from Google top-10 URLs."
+    }
   ]
 }
