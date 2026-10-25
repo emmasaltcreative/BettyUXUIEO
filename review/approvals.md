@@ -40,3 +40,14 @@ Edit the Status column. Only APPROVE items are acted on.
 | ID | Change | Status |
 |---|---|---|
 | C-6 | Reviews near add-to-cart post-launch | DEFER 2027-01-15 |
+
+## Added 2026-W43 (all PENDING)
+| ID | Change | Status |
+|---|---|---|
+| E-1 | Rewrite homepage title + add meta description (currently "Linen Book Covers..." vs. live "In Her Purse") | PENDING |
+| E-2 | Add Product/Offer schema + org-level return & shipping policy markup (needs theme edit, delivered as PR) | PENDING |
+| E-3 | Fix inventory/availability: tote (0, no stock state) and perfume (-1). Tell me: made-to-order, preorder or limited? | PENDING |
+| E-4 | Add plain-language shipping & returns block to product pages (you confirm rates/windows) | PENDING |
+| E-5 | Align purchase CTA wording ("Claim" vs "Preorder") + add subline | PENDING |
+| E-8 | Add ingredient line to perfume page after you confirm with a regulatory advisor | PENDING |
+| E-10 | Check/confirm AI shopping channels + product data completeness in Shopify admin | PENDING |
