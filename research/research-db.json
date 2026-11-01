@@ -3,10 +3,113 @@
   "last_prune_audit": null,
   "next_prune_audit_due": "2026-12-09",
   "sources": [
-    {"id":"r001","url":"https://baymard.com/learn/ecommerce-ux-audit","title":"Ecommerce UX Audit: How to Find What's Hurting Your Conversion","publisher":"Baymard Institute","category":"UX/UI","reliability":"primary","first_used":"2026-W41","last_confirmed":"2026-10-09","status":"active","takeaway":"Checkout and shipping/tax surprises are leading abandonment drivers; audit against heuristics."},
-    {"id":"r002","url":"https://shopaccino.com/blog/ecommerce-ux-that-converts-the-ultimate-2026-guide","title":"Ecommerce UX That Converts: 2026 Guide","publisher":"Shopaccino","category":"UX/UI","reliability":"vendor","first_used":"2026-W41","last_confirmed":"2026-10-09","status":"active","takeaway":"Reviews near add-to-cart, guest checkout, free-shipping progress."},
-    {"id":"r003","url":"https://helloretail.com/en/blog/geo-for-ecommerce-guide/","title":"GEO for ecommerce: How to get your products cited by AI search engines","publisher":"Hello Retail","category":"GEO","reliability":"vendor","first_used":"2026-W41","last_confirmed":"2026-10-09","status":"active","takeaway":"Complete Product schema, crawlable pages, answer-first copy."},
-    {"id":"r004","url":"https://www.thirdandgrove.com/insights/aeo-geo-playbook-shopify-brands/","title":"AEO/GEO playbook for Shopify brands","publisher":"Third & Grove","category":"AEO/GEO","reliability":"vendor","first_used":"2026-W41","last_confirmed":"2026-10-09","status":"active","takeaway":"Brand-owned FAQs, policies, sizing guides are what AI cites."},
-    {"id":"r005","url":"https://www.sparq.ai/blogs/generative-engine-optimization-shopify","title":"Generative Engine Optimization for Shopify","publisher":"Sparq","category":"GEO","reliability":"vendor","first_used":"2026-W41","last_confirmed":"2026-10-09","status":"active","takeaway":"Allow AI crawlers (OAI-SearchBot etc.); claims unverified by OpenAI docs."}
+    {
+      "id": "r001",
+      "url": "https://baymard.com/learn/ecommerce-ux-audit",
+      "title": "Ecommerce UX Audit: How to Find What's Hurting Your Conversion",
+      "publisher": "Baymard Institute",
+      "category": "UX/UI",
+      "reliability": "primary",
+      "first_used": "2026-W41",
+      "last_confirmed": "2026-10-09",
+      "status": "active",
+      "takeaway": "Checkout and shipping/tax surprises are leading abandonment drivers; audit against heuristics."
+    },
+    {
+      "id": "r002",
+      "url": "https://shopaccino.com/blog/ecommerce-ux-that-converts-the-ultimate-2026-guide",
+      "title": "Ecommerce UX That Converts: 2026 Guide",
+      "publisher": "Shopaccino",
+      "category": "UX/UI",
+      "reliability": "vendor",
+      "first_used": "2026-W41",
+      "last_confirmed": "2026-10-09",
+      "status": "active",
+      "takeaway": "Reviews near add-to-cart, guest checkout, free-shipping progress."
+    },
+    {
+      "id": "r003",
+      "url": "https://helloretail.com/en/blog/geo-for-ecommerce-guide/",
+      "title": "GEO for ecommerce: How to get your products cited by AI search engines",
+      "publisher": "Hello Retail",
+      "category": "GEO",
+      "reliability": "vendor",
+      "first_used": "2026-W41",
+      "last_confirmed": "2026-10-09",
+      "status": "active",
+      "takeaway": "Complete Product schema, crawlable pages, answer-first copy."
+    },
+    {
+      "id": "r004",
+      "url": "https://www.thirdandgrove.com/insights/aeo-geo-playbook-shopify-brands/",
+      "title": "AEO/GEO playbook for Shopify brands",
+      "publisher": "Third & Grove",
+      "category": "AEO/GEO",
+      "reliability": "vendor",
+      "first_used": "2026-W41",
+      "last_confirmed": "2026-10-09",
+      "status": "active",
+      "takeaway": "Brand-owned FAQs, policies, sizing guides are what AI cites."
+    },
+    {
+      "id": "r005",
+      "url": "https://www.sparq.ai/blogs/generative-engine-optimization-shopify",
+      "title": "Generative Engine Optimization for Shopify",
+      "publisher": "Sparq",
+      "category": "GEO",
+      "reliability": "vendor",
+      "first_used": "2026-W41",
+      "last_confirmed": "2026-10-09",
+      "status": "active",
+      "takeaway": "Allow AI crawlers (OAI-SearchBot etc.); claims unverified by OpenAI docs."
+    },
+    {
+      "id": "r006",
+      "url": "https://www.shopify.com/ucp",
+      "title": "Universal Commerce Protocol",
+      "publisher": "Shopify",
+      "category": "GEO",
+      "reliability": "primary",
+      "first_used": "2026-W44",
+      "last_confirmed": "2026-11-01",
+      "status": "active",
+      "takeaway": "UCP lets agents discover, cart and check out; store already exposes /.well-known/ucp, agents.md, llms.txt."
+    },
+    {
+      "id": "r007",
+      "url": "https://www.fudge.ai/blog/state-of-shopify-performance-2026/",
+      "title": "The State of Shopify Performance in 2026",
+      "publisher": "Fudge",
+      "category": "UX/UI",
+      "reliability": "vendor",
+      "first_used": "2026-W44",
+      "last_confirmed": "2026-11-01",
+      "status": "active",
+      "takeaway": "INP and LCP are the hard CWV metrics on app-heavy Shopify stores; use field data. Pass-rate stats conflict across sources."
+    },
+    {
+      "id": "r008",
+      "url": "https://community.shopify.com/t/google-tells-me-missing-field-shippingdetails-in-offers/311805",
+      "title": "Missing field shippingDetails in offers",
+      "publisher": "Shopify Community",
+      "category": "SEO",
+      "reliability": "community",
+      "first_used": "2026-W44",
+      "last_confirmed": "2026-11-01",
+      "status": "active",
+      "takeaway": "shippingDetails/hasMerchantReturnPolicy warnings are common on Shopify; can be supplied via Merchant Center. Unverified vs Google docs."
+    },
+    {
+      "id": "r009",
+      "url": "https://www.digitalapplied.com/blog/ecommerce-product-page-optimization-2026-conversion-framework",
+      "title": "Ecommerce Product Page Optimization 2026",
+      "publisher": "Digital Applied",
+      "category": "UX/UI",
+      "reliability": "vendor",
+      "first_used": "2026-W44",
+      "last_confirmed": "2026-11-01",
+      "status": "active",
+      "takeaway": "Estimated-delivery-date messaging is a high-impact low-effort test; not primary data."
+    }
   ]
 }

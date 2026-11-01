@@ -2,6 +2,19 @@
 Status values: PENDING | APPROVE | REJECT | DEFER <date> | QUESTION: ... | DONE <date>
 Edit the Status column. Only APPROVE items are acted on.
 
+## W44 new items (Nov 1, 2026) - see audits/2026-W44-audit.md
+| ID | Change | Status |
+|---|---|---|
+| N-1 | Change product schema availability InStock to PreOrder for preorder items (theme edit via PR; confirm inventory policy) | PENDING |
+| N-2 | Decide: publish the other 3 Reading Hour products now, or hide them / fix links until ready (currently 404) | PENDING |
+| N-3 | Rewrite homepage SEO title + description to match current products (I will draft before/after) | PENDING |
+| N-4 | Add shippingDetails + return policy to Product schema / Merchant Center | PENDING |
+| N-5 | Add images + alt text to live products (needs your photos; I draft alt) | PENDING |
+| N-6 | Chaperone: state material decision date or options near the Preorder button | PENDING |
+| N-7 | Pick one canonical brand name for vendor field | PENDING |
+
+Note: D-1 is effectively resolved (site reachable W44). A-1/A-2/B-1 are partly superseded by N-2/N-5/N-3.
+
 ## Access / Technical
 | ID | Change | Status |
 |---|---|---|
