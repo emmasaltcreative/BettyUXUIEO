@@ -53,3 +53,14 @@ Note: D-1 is effectively resolved (site reachable W44). A-1/A-2/B-1 are partly s
 | ID | Change | Status |
 |---|---|---|
 | C-6 | Reviews near add-to-cart post-launch | DEFER 2027-01-15 |
+
+## W45 new items (Nov 8, 2026) - see audits/2026-W45-audit.md
+| ID | Change | Status |
+|---|---|---|
+| W-1 | Fix availability: decide made-to-order / preorder / limited stock, then set schema `PreOrder` or `LimitedAvailability` and stop negative inventory (supersedes N-1; **Critical**) | PENDING |
+| W-2 | Confirm The Chaperone going back to DRAFT/404 is intentional; I will check outbound links to it | PENDING |
+| W-3 | The Advent: give target launch date, price, ship-by date (I draft copy, alt text and a publish checklist) | PENDING |
+| W-4 | Approve homepage title/meta rewrite (same as N-3; I will post before/after text on approval) | PENDING |
+| W-5 | The Scented Letter: add $0 offer + align handle with redirect, OR exclude from sitemap/feeds | PENDING |
+| W-7 | Add holiday shipping cutoff + gift returns line near add-to-cart | PENDING |
+| W-8 | Read-only checkout check (Shop Pay, Apple Pay, guest checkout) and real-device test notes | PENDING |
