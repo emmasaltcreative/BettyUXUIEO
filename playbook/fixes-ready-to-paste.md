@@ -1,51 +1,121 @@
 # Ready to paste — W47 fixes
-Written 2026-11-20. Every fact here was read from live Shopify data or the live storefront on that date.
-**Nothing here is applied.** Each item maps to an approval ID in `review/approvals.md`.
+Written 2026-11-20 · **decisions of 2026-11-20 applied** (E-1, E-2, E-3, E-5, E-7).
+Every fact here was read from live Shopify data or the live storefront on that date.
+**Nothing here is applied to the live store.** Each item maps to an approval ID in `review/approvals.md`.
 
 Verified source values used below:
 `The Brownstone Tote $91.00 · A Woman Remembered $43.00 · The Out-the-Door Gloves $89.00`
-`Standard $8.00, free over $70.00, arrives 5–10 business days · Express $15.00, arrives 2–4 business days`
+`Market: United States only (single ACTIVE market) · Standard $8.00, free over $70.00 · Express $15.00`
 `Returns 30 days from delivery · Virginia, United States · hello@ohbettyjaletti.com`
+
+**Decisions in force:**
+- **US only.** Already true at market level — see §8 for the actual cleanup.
+- **Nothing is open for preorder.** Drives §1b, the biggest change in this document.
+- **Overselling is selling, then fulfilling on demand.** Made-to-order. Drives §5b and §7.
+- **Voice-forward homepage copy.**
+- **The Advent is parked.**
+
+**Still blocked, awaiting a decision:** the scent pyramid (E-4) and the social profile URLs (E-6).
 
 ---
 
-## 1. Homepage title + meta — fixes A-1
+## 1a. Homepage title + meta — fixes A-1
 
 Currently promises linen book covers, which are not for sale, and calls the house French.
 
-**Recommended — Online Store → Preferences**
-
-Title (53 chars):
-```
-Suede Totes, Travel Scent & Gloves | Oh Betty Jaletti
-```
-
-Meta description (143 chars):
-```
-Edition I, In Her Purse: an unstructured suede tote, a 10 mL travel eau de parfum, and gloves for cold mornings. Made in considered quantities.
-```
-
-**Alternative, voice-forward** — use only if the concrete version feels too plain. It trades some search
-clarity for register, and the meta carries the specifics instead.
+**Online Store → Preferences**
 
 Title (46 chars):
 ```
 Edition I: What She Carries | Oh Betty Jaletti
 ```
-Meta (153 chars):
+
+Meta description (153 chars):
 ```
 What she carries, and what she carries it in. A suede tote cut generously, a travel eau de parfum, leather gloves. An American maison, made the long way.
 ```
 
-**Also change in the same pass:**
+**Also in the same pass:**
 - `frontpage` collection SEO title/description — currently empty (B-9). Reuse the above.
 - Remove **"French in spirit, American at heart"** wherever it appears. `llms.txt` and the legal notice both
-  state Virginia, United States. Pick one story; the honest one is the American one.
+  state Virginia, United States. The meta above carries "An American maison" instead.
 - **Add to the launch checklist:** the homepage title changes with every edition.
 
 ---
 
-## 2. `llms.txt` / `agents.md` corrections — fixes A-2, B-2, B-3, C-9, C-10
+## 1b. The Reading Hour collection is a live open-preorder page — fixes A-6
+
+**This is the most urgent item in this document, and it is a bigger change than an SEO field.**
+
+You said nothing is open for preorder. The live collection page at `/collections/the-reading-hour`
+currently says otherwise, five times over, and then shows nothing to buy — because The Chaperone is DRAFT,
+so the product grid renders **"Between editions · Nothing here at the moment."**
+
+Verified on the live page (422 rendered words):
+
+| Where | Current live text |
+|---|---|
+| Eyebrow | `Edition II · Preorder` |
+| Hero | `Preorder. Your number in the edition is held the moment you order.` |
+| Section heading | `The edition — Open for preorder` |
+| SEO title | `The Reading Hour — Edition II, Open for Preorder \| Oh Betty Jaletti` |
+| Meta | `… Open for preorder, in considered quantities.` |
+| Terms block | `How a preorder works here` → `I. You are charged today` … |
+| Product grid | `Between editions · Nothing here at the moment.` |
+
+A visitor is invited to preorder, told they will be charged today, and then given nothing to order.
+A crawler reads a page that claims an open preorder with zero offers. Both are worse than silence.
+
+### SEO fields
+
+Title (47 chars):
+```
+The Reading Hour: Edition II | Oh Betty Jaletti
+```
+Meta (145 chars):
+```
+Edition II from Maison Betty Jaletti: objects for the hour you keep for yourself, beginning with The Chaperone. Not yet open — join the waitlist.
+```
+Collection description:
+```html
+<p>Edition II. The hour after the dishes and before the sleep, and the few things that make it an occasion rather than a gap in the day. Not yet open. The waitlist holds your number.</p>
+```
+
+### Theme / section copy
+
+| Current | Change to |
+|---|---|
+| `Edition II · Preorder` | `Edition II · Announced` |
+| `Preorder. Your number in the edition is held the moment you order.` | `Not yet open. The waitlist holds your number, and earns you one letter when the doors open early.` |
+| `The edition — Open for preorder` | `The edition — Not yet open` |
+| Primary button → product | Primary button → `/pages/waitlist`, labelled `Join the waitlist` |
+
+### The preorder terms block — keep it, move it to future tense
+
+Do **not** delete it. *"Written down because a preorder is a promise, and promises should be legible"* is
+the best trust writing on the site and exactly what AI answers quote. It is only wrong in tense.
+
+| Current | Change to |
+|---|---|
+| `How a preorder works here` | `How a preorder will work` |
+| `Plainly, so there is nothing to discover later.` | keep as is |
+| `I. You are charged today` | `I. You will be charged on the day you order` |
+| `II. We cut yours when the edition opens` | keep as is |
+| `III. It ships by the date on the page` | keep as is |
+| `IV. If it cannot be made` | keep as is |
+
+**Alternative** if future tense reads oddly on a page with no offers: move the whole block to
+`/pages/waitlist`, where a reader is already leaning in, and link to it from the collection. Either works;
+the reframe is less work and keeps the collection page substantial.
+
+### Two more places carrying the same claim
+- **The Chaperone's SEO description** reads *"Preorder The Chaperone … Charged today"*. It is DRAFT so not
+  live, but it must not be published in that state while nothing is open. Flag on the publish checklist.
+- **`llms.txt` is already correct** — *"No piece is open for preorder today."* Leave that line alone.
+
+---
+
+## 2. `llms.txt` / `agents.md` corrections — fixes A-2, B-2
 
 The file is well written and should be kept. Three classes of change.
 
@@ -59,15 +129,15 @@ The file is well written and should be kept. Three classes of change.
 **The Brownstone Tote** · `/products/the-brownstone-tote` · No. 1
 ```
 Same for **A Woman Remembered** (remove `· $71.00 ·` and `in stock, ships now`).
-Both stated prices are wrong — $94.00 vs the real $91.00, and $71.00 vs the real **$43.00**, a 65% error.
+Both stated prices are wrong — $94.00 vs the real $91.00, and $71.00 vs the real **$43.00**, a 65% overstatement.
 
-**Then add this line immediately under the `## What is purchasable now` heading:**
+**Add immediately under the `## What is purchasable now` heading:**
 ```
 This file states no prices, stock levels, or ship dates. For all three, read
 `/products/{handle}.json` or the UCP/MCP endpoint — they are authoritative and current.
 ```
 **Delete** the paragraph beginning *"Prices above are the current variant prices as of the review date."* —
-it is no longer needed and is the source of the error.
+it is the source of the error and is no longer needed.
 
 ### 2b. Add the missing published product
 The Out-the-Door Gloves was published Nov 16, after the file's Nov 12 review, so it is absent while the
@@ -83,19 +153,27 @@ Chocolate leather gloves for cold mornings and everyday outings, in Small and Me
 For the buyer who keeps one pair by the door and does not want to think about it again.
 ```
 
-### 2c. Resolve the contradictions
+### 2c. Shipping facts
 | In the file | Reality | Fix |
 |---|---|---|
 | "in-stock orders generally ship within 2–3 business days" | Policy says packed in **3–5** business days | Delete the sentence. Replace with: `Processing and transit windows are stated in the shipping policy; quote that, never this file.` |
-| "Express $15.00 on orders of $150.00 or more" | Policy says Express **$15.00**, no threshold | Delete the whole rates list. Replace with: `Rates, thresholds and windows: `/policies/shipping-policy`. Checkout is authoritative.` |
-| "the United States only… does not currently sell or ship internationally" | Shopify `shipsToCountries` lists **28 countries** | **Do not edit the file until this is decided** — see B-3. The file and the policy agree with each other and disagree with the store configuration |
-| "No piece is open for preorder today" | Reading Hour collection SEO says **"Open for Preorder"** | Decide, then align both. The Chaperone is DRAFT, so today the file is right and the collection is wrong |
-| Perfume: "Luminous pear… warm amber… intimate musk… rose and jasmine" | Shopify SEO: "Rose, jasmine, and aged iris over sandalwood and soft musk" | Pick one pyramid and use it on the product page, the SEO field and this file |
+| "Express $15.00 on orders of $150.00 or more" | Delivery profile shows Express **$15.00 flat**, no threshold | Delete the rates list. Replace with: `Rates, thresholds and windows: /policies/shipping-policy. Checkout is authoritative.` |
+| "the United States only…" | **Correct — leave as is.** Single ACTIVE market is US | No change |
+| "No piece is open for preorder today" | **Correct — leave as is** | No change |
 
-### 2d. Update the review date
+### 2d. Made-to-order, and the review date
+Add to `## What is purchasable now` (see §7 for why):
+```
+Pieces are cut to demand. A published piece can be ordered whether or not stock is on the shelf;
+the listing states its window. Availability in page markup reads BackOrder for these, which means
+orderable and made to order — not unavailable.
+```
+And update:
 ```
 House knowledge below was last reviewed **20 November 2026**.
 ```
+
+**Still blocked:** the scent pyramid for A Woman Remembered (E-4). Do not edit that passage until decided.
 
 ---
 
@@ -103,7 +181,6 @@ House knowledge below was last reviewed **20 November 2026**.
 
 No letter currently emits any JSON-LD. Add to the article template, inside `<head>`.
 
-**Liquid (recommended — covers all 15 at once):**
 ```liquid
 <script type="application/ld+json">
 {
@@ -135,22 +212,19 @@ No letter currently emits any JSON-LD. Add to the article template, inside `<hea
 </script>
 ```
 
-**Note on `author`:** an `Organization` author is correct here — the letters are signed by the house, not
-a named person. If a byline is ever introduced, switch to `"@type": "Person"` and keep it consistent with
-the visible byline.
+**On `author`:** an `Organization` author is correct — the letters are signed by the house, not a person.
+If a byline is ever introduced, switch to `"@type": "Person"` and match the visible byline.
 
-**Also:** all 15 letters are dated July 14, 2026. `dateModified` will stay identical until the letters are
-actually revisited. Stagger real revisions rather than back-dating (C-5).
+**Note:** all 15 letters are dated July 14, 2026, so `dateModified` stays identical until they are actually
+revisited. Stagger real revisions rather than back-dating (C-5).
 
 ---
 
 ## 4. Organization schema — fixes B-5, B-6, B-7
 
-Replace the existing `Organization` block in `theme.liquid`. Additions: `sameAs`, `email`, `address`,
-`areaServed`, `hasMerchantReturnPolicy`, `shippingDetails`, and a current `description`.
-
-Declaring the return and shipping policy **once, here** is the documented approach — product-level markup is
-for exceptions only.
+Replace the existing `Organization` block in `theme.liquid`. `areaServed` is **United States**, per the
+US-only decision. Declaring the return and shipping policy **once here** is the documented approach;
+product-level markup is for exceptions only.
 
 ```json
 {
@@ -181,12 +255,8 @@ for exceptions only.
     "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
     "merchantReturnDays": 30,
     "returnMethod": "https://schema.org/ReturnByMail",
-    "returnFees": "https://schema.org/ReturnShippingFees",
-    "returnShippingFeesAmount": {
-      "@type": "MonetaryAmount",
-      "currency": "USD",
-      "value": 0
-    },
+    "customerRemorseReturnFees": "https://schema.org/ReturnShippingFees",
+    "itemDefectReturnFees": "https://schema.org/FreeReturn",
     "merchantReturnLink": "https://ohbettyjaletti.com/policies/refund-policy"
   },
   "shippingDetails": {
@@ -217,16 +287,17 @@ for exceptions only.
 }
 ```
 
-**Three things to check before pasting:**
-1. **`sameAs` must be filled in** with the real profile URLs. It is the main way an engine confirms
-   "Oh Betty Jaletti" and "Maison Betty Jaletti" are one business. Leaving the placeholders in is worse
-   than omitting the field.
-2. **`returnShippingFeesAmount: 0` is wrong if the buyer pays return postage on a change of mind** — and
-   our policy says they do. Either set a real amount or drop `returnFees`/`returnShippingFeesAmount` and
-   let the linked policy speak. Do not state free returns we do not offer.
-3. **`areaServed` assumes US-only.** Blocked on B-3 — Shopify is configured for 28 countries.
-4. `@type: OnlineStore` is a subtype of `Organization` and is the better fit; if the theme depends on
-   `Organization` elsewhere, keep `Organization` — both work.
+**Before pasting:**
+1. **`sameAs` must be filled in** with real profile URLs (E-6). It is the main way an engine confirms
+   "Oh Betty Jaletti" and "Maison Betty Jaletti" are one business. Leaving placeholders in is worse than
+   omitting the field — so either fill it or delete the key.
+2. The return fees are split correctly to match your policy: **buyer pays on a change of mind**
+   (`customerRemorseReturnFees`), **house pays when the fault is ours** (`itemDefectReturnFees`). Do not
+   collapse these into a single `returnFees: FreeReturn` — that would promise free returns you do not offer.
+3. `handlingTime` of 3–5 days matches the current policy. **If made-to-order changes that, change both** —
+   see §7.
+4. `@type: OnlineStore` is a subtype of `Organization`. If the theme depends on `Organization` elsewhere,
+   keep `Organization`; both work.
 
 **Fragrance exception** — the one place product-level policy markup is justified. On A Woman Remembered only:
 ```json
@@ -235,8 +306,6 @@ for exceptions only.
   "applicableCountry": "US",
   "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
   "merchantReturnDays": 30,
-  "returnPolicySeasonalOverride": [],
-  "customerRemorseReturnFees": "https://schema.org/ReturnShippingFees",
   "merchantReturnLink": "https://ohbettyjaletti.com/policies/refund-policy",
   "additionalProperty": {
     "@type": "PropertyValue",
@@ -248,31 +317,29 @@ for exceptions only.
 
 ---
 
-## 5. Product schema additions — fixes A-3, A-5, B-5
+## 5. Product schema — fixes A-3, A-5, B-5
 
 ### 5a. `brand` must be the house — A-3, critical
-`/products/out-the-door-leather-gloves` currently emits `"brand":"Glove Story"`, taken from Shopify `vendor`.
+`/products/out-the-door-leather-gloves` emits `"brand":"Glove Story"`, taken from Shopify `vendor`.
 
-**Fix in Shopify, not in the theme:** set `vendor` to `Maison Betty Jaletti` on The Out-the-Door Gloves
-and on every house piece. To keep supplier records, use a metafield (`custom.supplier`) or a tag — never
-`vendor`, because `vendor` becomes `brand` in schema.
+**Fix in Shopify, not the theme:** set `vendor` to `Maison Betty Jaletti` on The Out-the-Door Gloves.
+To keep supplier records, use a metafield (`custom.supplier`) or a tag — never `vendor`, because `vendor`
+becomes `brand` in schema. Nine of ten products are already correct; the gloves are the only exception.
 
-Then audit all ten: nine read `Maison Betty Jaletti`; the gloves are the only exception.
-
-### 5b. Honest availability — A-5
+### 5b. Availability — A-5, decided: made to order
 All three active variants are `inventoryPolicy: CONTINUE` with quantities **−5**, **−12**, **0/0**, and all
-three pages claim `InStock`.
+three pages claim `InStock`. Since selling ahead is deliberate, the honest value is **`BackOrder`** —
+which in schema means *orderable, not yet in hand*, exactly the model described.
 
-Preferred, if selling ahead is deliberate:
-```json
-"availability": "https://schema.org/BackOrder"
-```
-with a visible ship window on the listing. In Liquid:
 ```liquid
 "availability": "https://schema.org/{% if variant.available and variant.inventory_quantity > 0 %}InStock{% elsif variant.available %}BackOrder{% else %}OutOfStock{% endif %}"
 ```
-This keeps the page honest automatically and matches the house's preorder model, which is a selling point
-rather than an apology.
+
+This flips automatically as stock comes and goes, so it stays true without anyone remembering to update it.
+
+**`BackOrder` is not a downgrade.** It is how a made-to-order house is supposed to describe itself, and it
+protects against the Merchant Center disapprovals that follow from claiming stock you do not hold.
+It does require a visible window on the listing — see §7.
 
 ### 5c. `mpn` for feed matching — B-5
 No `gtin` or `mpn` anywhere. With no barcodes, use the SKU:
@@ -283,15 +350,15 @@ Keep `sku` as well; they serve different purposes.
 
 ### 5d. Images — B-8
 `mediaCount`: tote **1**, perfume **3**, gloves **1**, four Edition II pieces **0**. Target 4+ per published
-piece: hero on white, in-hand for scale, a detail, the parcel. Nothing is eligible for merchant listings
-or AI shopping surfaces without images. Alt text can be drafted once the photographs exist.
+piece: hero on white, in-hand for scale, a detail, the parcel. Nothing is eligible for merchant listings or
+AI shopping surfaces without images. Alt text can be drafted once the photographs exist.
 
 ---
 
 ## 6. The attention bridge — fixes A-4, the highest-value item here
 
-Zero product links across every letter checked. Add one closing block per letter. **One object, named,
-with the sentence that earns it** — not a product grid.
+Zero product links across every letter checked. Add one closing block per letter. **One object, named, with
+the sentence that earns it** — not a product grid.
 
 **The block, in house voice** (example, for `what-does-numbered-edition-mean`):
 ```html
@@ -308,19 +375,22 @@ with the sentence that earns it** — not a product grid.
 
 **The mapping** — one object per letter cluster:
 
-| Letters | The one object | Link while unpublished |
+| Letters | The one object | Link |
 |---|---|---|
-| `reading-nook-essentials`, `reading-corner-small-apartment`, `best-lighting-reading-at-night`, `reading-side-table-essentials` | The Chaperone | `/pages/waitlist` — say plainly it is coming |
+| `reading-nook-essentials`, `reading-corner-small-apartment`, `best-lighting-reading-at-night`, `reading-side-table-essentials` | The Chaperone | `/pages/waitlist` — not yet open, say so plainly |
 | `evening-reading-habit`, `slow-living-rituals-under-an-hour`, `slow-living-evening-routine` | One More Chapter | `/pages/waitlist` |
 | `slow-living-vs-minimalism`, `slow-living-home-small-budget` | A Woman Remembered | live — `/products/a-woman-remembered` |
 | `slow-living-autumn-winter` | The Out-the-Door Gloves | live — `/products/out-the-door-leather-gloves` |
 | `what-does-numbered-edition-mean`, `are-limited-edition-home-goods-worth-it`, `verify-limited-edition-genuine`, `limited-vs-open-edition-vs-one-of-a-kind`, `collecting-numbered-editions-beginners` | Edition I collection | live — `/collections/in-her-purse` |
 
+Nine of the fifteen letters point at the waitlist rather than a product. That is the correct outcome while
+Edition II is unopened, and it is a far better one than a bounce.
+
 **Two more links per letter, same pass:**
 - **Up to its hub** — `/pages/slow-living`, `/pages/the-reading-nook`, or `/pages/numbered-editions`.
 - **Across to one sibling letter**, in a sentence rather than a related-posts widget.
 
-**And on the three hubs:** link down to each of their five letters. The hubs currently do not, so the
+**And on the three hubs:** link down to each of their five letters. The hubs do not currently, so the
 clusters are not yet clusters.
 
 **Klaviyo capture** — the end of a 1,000-word letter is the warmest moment on the site. One line, house
@@ -331,13 +401,70 @@ Letters from the maison, when there is something worth saying. Nothing else.
 
 ---
 
-## 7. Quick wins — no copy needed
+## 7. Made-to-order needs a stated window — new, A-7
+
+**A consequence of the fulfilment decision, and worth deciding before §5b ships.**
+
+"Fulfilling based on demand" means a piece may be ordered when no stock exists. Three things currently
+promise otherwise:
+
+| Promise | Where | Problem |
+|---|---|---|
+| "In-stock orders generally ship within **3–5 business days**" | Shipping policy | Not achievable for a piece that is not yet made |
+| "Express — **packed the next business day**" | Delivery profile method name + policy | A next-day packing promise on a made-to-order piece |
+| `handlingTime` 3–5 days | Organization schema, §4 | Inherits the same claim |
+
+**Recommended:** add one line to each made-to-order listing, in house voice, and a matching clause to the
+shipping policy. Something like:
+```
+Cut to order. Yours is made when you order it, and leaves the house within ten business days.
+```
+Then set `handlingTime` to the real window and either rename the Express method or exclude made-to-order
+pieces from it.
+
+**I need the real number from you** — what window can the house actually hold? Everything else here is
+mechanical once that is set. This is logged as **E-8**.
+
+---
+
+## 8. Shipping zones: the "28 countries" correction — fixes B-3
+
+**Correction to the W47 audit.** I reported that Shopify was configured to ship to 28 countries while the
+policy said US-only, and flagged legal exposure. That was overstated. The accurate position:
+
+- **Markets:** exactly one — `United States`, `ACTIVE`, region `US`. **Checkout is already gated to the US.**
+  Non-US customers cannot buy. The policy and `llms.txt` are correct, and no customer-facing promise is broken.
+- `shop.shipsToCountries` returns 28 countries because it unions **delivery zones**, not markets. The zones:
+
+| Profile | Zone | Countries | Methods |
+|---|---|---|---|
+| General profile *(default)* | Domestic | US | Standard $8.00 · Standard $0.00 *(the free-over-$70 tier)* · Express $15.00 |
+| General profile *(default)* | **International** | 27 | `usps`, `dhl_express` — **both active** |
+| Samples — posted free | Everywhere the house writes | 28 | Posted — free $0.00 |
+| Codigle Combine Shipping | Combine Shipping | Rest of World | Combine Shipping $0.00 |
+
+**So the real finding is dead configuration, not a broken promise.** It still matters:
+1. The **International zone has active carrier rates.** If a second market is ever added, international
+   shipping switches on silently, with no policy to match it.
+2. `shipsToCountries` is what feeds, API consumers and shopping agents read. It says 28; the truth is 1.
+3. The **Samples** profile covers 28 countries for The Scented Letter — which is `ARCHIVED`, so moot today,
+   but it is how a free sample would end up posted to Singapore.
+4. **Codigle Combine Shipping** is an app-created profile covering Rest of World. If that app is no longer
+   in use, the profile should go with it.
+
+**Recommended:** delete the International zone from the General profile, narrow the Samples profile to US,
+and remove the Codigle profile if the app is gone. Low risk, and it makes `shipsToCountries` agree with
+reality. **No urgency** — nothing is mis-sold today.
+
+---
+
+## 9. Quick wins — no copy needed
 
 | Fix | Where | ID |
 |---|---|---|
 | Unpublish `/pages/waitlist-trust-draft` | Admin → Pages | B-1 |
 | Set `frontpage` collection SEO fields | Admin → Collections | B-9 |
 | Verify **Sales channels → Agentic → ChatGPT** is enabled | Admin → Sales channels | C-2 |
-| Decide The Advent: build or park | Admin → Products | B-10 |
 | Add `The short answer` block to `reading-nook-essentials` | Admin → Blog posts | C-4 |
-| Keep `robots.txt` permissive — no change, decision only | n/a | C-6 |
+| Keep `robots.txt` permissive — decision only, no change | n/a | C-6 |
+| The Advent — **parked**, no action | n/a | B-10 |

@@ -1,6 +1,6 @@
 # The House Playbook: SEO · AEO · GEO
 **Oh Betty Jaletti / Maison Betty Jaletti** · ohbettyjaletti.com
-Written 2026-11-20 · Review every 8 weeks (next: 2027-01-15)
+Written 2026-11-20 · house decisions of 2026-11-20 folded in · Review every 8 weeks (next: 2027-01-15)
 
 This is the standing reference. Weekly audits in `audits/` check the store *against this file*.
 Confidence is marked on every claim: **[primary]** vendor-independent or platform documentation ·
@@ -148,7 +148,8 @@ A fact about this store currently lives in up to six surfaces:
 | Rank | Surface | Authoritative for |
 |---|---|---|
 | 1 | Shopify variant data (price, inventory, policy) | price · availability · SKU — **always wins** |
-| 2 | Shopify policy pages (`/policies/*`) | shipping rates, windows, returns, destinations |
+| 2 | Shopify policy pages (`/policies/*`) | shipping rates, windows, returns |
+| 2= | Shopify **markets** | who may actually buy — **not** `shipsToCountries`, which unions delivery zones and over-reports (see W47 Addendum §9) |
 | 3 | Product metafields (`custom.materials`, `fit_dimensions`, `care`…) | specs, dimensions, care |
 | 4 | Visible page copy | the story |
 | 5 | `llms.txt` / `agents.md` | brand facts, vocabulary, what exists — **never prices** |
@@ -244,19 +245,25 @@ Live markup gives us `Product`, `Offer`, `Brand`, `BreadcrumbList`, `sku`, `pric
 | `availability` honesty | See 6.2 | Critical |
 | `aggregateRating`/`review` | Only once genuinely earned. Never fabricated | Post-launch |
 
-### 6.2 Availability must be true **[house]**
+### 6.2 Availability must be true — **decided 2026-11-20** **[house]**
 
-`inventoryPolicy: CONTINUE` on every active variant means we sell past zero. With negative stock,
-`availability: InStock` is a claim we cannot keep. Options, in order of preference:
+**The house sells to demand and makes to order.** `inventoryPolicy: CONTINUE` is deliberate, not an
+accident. The settled policy:
 
-1. Keep real inventory and let `InStock` be true. Best.
-2. If selling ahead deliberately, present it as **`BackOrder` or `PreOrder` with a stated ship window**
-   on the listing. Honest, and preorder-as-scarcity fits the house perfectly.
-3. What we must not do: `InStock` on a piece we cannot ship this week. It is the fastest way to lose
-   both a customer and a feed.
+- **`BackOrder` is our default availability** for a published piece with no stock on the shelf. In schema
+  it means *orderable, not yet in hand* — which is exactly the model. It is not a downgrade, and it is
+  what protects us from feed disapprovals for claiming stock we do not hold.
+- `InStock` only when stock genuinely exists. The Liquid in `fixes-ready-to-paste.md` §5b flips between
+  them automatically, so no one has to remember.
+- **`BackOrder` obliges us to state a window on the listing.** Made-to-order without a date is the one
+  version of this that loses trust. Every made-to-order listing carries a house-voice line giving the
+  window, and the shipping policy and schema `handlingTime` must agree with it.
+- What we must never do: `InStock` on a piece we cannot ship. It is the fastest way to lose both a
+  customer and a feed.
 
 ### 6.3 Entity consistency
-- `Organization` schema should carry `sameAs` (every social profile), `email`, and `address`/`areaServed`.
+- `Organization` schema should carry `sameAs` (every social profile), `email`, `address`, and
+  `areaServed` — **United States**, per the market, decided 2026-11-20.
   We have `name`, `alternateName`, `logo`, `foundingDate`, `description` — **`sameAs` is the notable gap**,
   and it is the main way an engine confirms two names are one business.
 - `alternateName: "Maison Betty Jaletti"` is the correct way to carry the dual name. **Keep it.**
@@ -348,13 +355,15 @@ Run before anything else. Any **no** is a finding.
 1. Does the homepage title name something actually for sale?
 2. Do Shopify price, page price, and `llms.txt` agree on every published piece? *(`llms.txt` should state no prices at all.)*
 3. Is every published product in `llms.txt` / `agents.md`?
-4. Does `availability` in schema match what we can actually ship?
+4. Does `availability` match reality — `InStock` only with stock, `BackOrder` otherwise, and does every
+   `BackOrder` listing state its window?
 5. Is `brand` in every Product schema the house?
 6. Do shipping rates, windows and destinations match the policy page everywhere they appear?
 7. Any published duplicate or draft-twin pages?
 8. Does every letter published this week link to one object and one hub?
 9. Does `Organization.description` list what is buyable today?
 10. Any new empty or thin published page?
+11. Does any page offer a preorder or a purchase that cannot actually be completed today?
 
 ---
 
