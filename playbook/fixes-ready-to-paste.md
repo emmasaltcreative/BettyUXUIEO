@@ -14,8 +14,10 @@ Verified source values used below:
 - **Overselling is selling, then fulfilling on demand.** Made-to-order. Drives §5b and §7.
 - **Voice-forward homepage copy.**
 - **The Advent is parked.**
+- **Made-to-order window: 3–5 business days** — matches the existing policy. See §7.
 
-**Still blocked, awaiting a decision:** the scent pyramid (E-4) and the social profile URLs (E-6).
+**Still blocked, awaiting a decision:** the scent pyramid (E-4), the social profile URLs (E-6), and what to
+do about Express (E-9, §7d — the only thing now holding the A-5/A-7/B-5 batch).
 
 ---
 
@@ -294,8 +296,8 @@ product-level markup is for exceptions only.
 2. The return fees are split correctly to match your policy: **buyer pays on a change of mind**
    (`customerRemorseReturnFees`), **house pays when the fault is ours** (`itemDefectReturnFees`). Do not
    collapse these into a single `returnFees: FreeReturn` — that would promise free returns you do not offer.
-3. `handlingTime` of 3–5 days matches the current policy. **If made-to-order changes that, change both** —
-   see §7.
+3. `handlingTime` of 3–5 days is **confirmed correct** — the made-to-order window was set to 3–5, which is
+   what the policy already claimed. No change needed here. Express is a separate problem; see §7d.
 4. `@type: OnlineStore` is a subtype of `Organization`. If the theme depends on `Organization` elsewhere,
    keep `Organization`; both work.
 
@@ -339,7 +341,7 @@ This flips automatically as stock comes and goes, so it stays true without anyon
 
 **`BackOrder` is not a downgrade.** It is how a made-to-order house is supposed to describe itself, and it
 protects against the Merchant Center disapprovals that follow from claiming stock you do not hold.
-It does require a visible window on the listing — see §7.
+It does require a visible window on the listing, now set at **3–5 business days** — see §7a.
 
 ### 5c. `mpn` for feed matching — B-5
 No `gtin` or `mpn` anywhere. With no barcodes, use the SKU:
@@ -401,31 +403,67 @@ Letters from the maison, when there is something worth saying. Nothing else.
 
 ---
 
-## 7. Made-to-order needs a stated window — new, A-7
+## 7. Made-to-order window — **decided: 3–5 business days** — fixes A-7
 
-**A consequence of the fulfilment decision, and worth deciding before §5b ships.**
+The window is **three to five business days to pack**, which is exactly what the shipping policy already
+claims. So Standard needs no rewrite, and the `handlingTime` of 3–5 in §4 was already correct.
 
-"Fulfilling based on demand" means a piece may be ordered when no stock exists. Three things currently
-promise otherwise:
+### 7a. The listing line — add to each made-to-order piece
 
-| Promise | Where | Problem |
-|---|---|---|
-| "In-stock orders generally ship within **3–5 business days**" | Shipping policy | Not achievable for a piece that is not yet made |
-| "Express — **packed the next business day**" | Delivery profile method name + policy | A next-day packing promise on a made-to-order piece |
-| `handlingTime` 3–5 days | Organization schema, §4 | Inherits the same claim |
-
-**Recommended:** add one line to each made-to-order listing, in house voice, and a matching clause to the
-shipping policy. Something like:
+House voice, and it reframes the wait as the point rather than the delay:
 ```
-Cut to order. Yours is made when you order it, and leaves the house within ten business days.
+Cut to order. Yours is made when you order it, and leaves the house in three to five business days.
 ```
-Then set `handlingTime` to the real window and either rename the Express method or exclude made-to-order
-pieces from it.
 
-**I need the real number from you** — what window can the house actually hold? Everything else here is
-mechanical once that is set. This is logged as **E-8**.
+### 7b. The policy clause — add to the shipping policy under "Order Processing"
 
----
+```
+Made to order. Most pieces are cut when you order them rather than held on a shelf. That is the three
+to five business days above; it is not a delay, it is the making. If a piece will take materially
+longer, we write to you with a new date, and you may cancel for a full refund.
+```
+
+### 7c. Schema — confirmed, no change from §4
+```json
+"handlingTime": { "@type": "QuantitativeValue", "minValue": 3, "maxValue": 5, "unitCode": "DAY" }
+```
+
+### 7d. Express is now the one remaining conflict — **E-9**
+
+Standard reconciles cleanly. Express does not, and the arithmetic is worth seeing plainly.
+
+**The policy currently promises:**
+> *Express — arrives in 2–4 business days. **Packed first, within one business day**, then 1–3 business
+> days in the post. $15.00.*
+
+The delivery method itself is named **"Express — packed the next business day"**.
+
+**With a 3–5 day making window, both claims are false:**
+
+| | Packing | Post | Stated arrival | Actual arrival |
+|---|---|---|---|---|
+| Standard $8.00 | 3–5 | 2–5 | 5–10 business days | **5–10** ✓ |
+| Express $15.00 | 3–5 *(not 1)* | 1–3 | 2–4 business days | **4–8** ✗ |
+
+So Express would cost $15 to save roughly one to two business days, while advertising that it saves six.
+That is the part worth your judgement, not just a copy fix.
+
+**Option A — Express buys faster post, not faster making** *(recommended if Express stays bookable)*
+Copy-only change, honest, keeps the revenue.
+- Rename the method: `Express — packed the next business day` → `Express — first in the queue`
+- Policy: *"Express — arrives in 4–8 business days. Packed in three to five business days, then 1–3 in the post. $15.00."*
+
+**Option B — retire Express until stock exists**
+Cleanest. Nothing is promised that the house does not control. Costs a little revenue on a method that
+currently cannot deliver what it says.
+
+**Option C — keep next-business-day packing and genuinely honour it for Express orders**
+Only if a single piece really can be cut, numbered, packed and signed off in one business day. If it can,
+this is the best outcome and the policy stays as written. If it cannot, it is the worst, because it is the
+promise most likely to be tested by the buyer who paid extra.
+
+**My recommendation: A.** It is a copy change, it is true, and it keeps a priority lane for the buyer who
+wants one — without claiming the making can be rushed, which is the opposite of what the house sells.
 
 ## 8. Shipping zones: the "28 countries" correction — fixes B-3
 

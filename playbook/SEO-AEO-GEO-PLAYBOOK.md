@@ -256,8 +256,12 @@ accident. The settled policy:
 - `InStock` only when stock genuinely exists. The Liquid in `fixes-ready-to-paste.md` §5b flips between
   them automatically, so no one has to remember.
 - **`BackOrder` obliges us to state a window on the listing.** Made-to-order without a date is the one
-  version of this that loses trust. Every made-to-order listing carries a house-voice line giving the
-  window, and the shipping policy and schema `handlingTime` must agree with it.
+  version of this that loses trust. **The window is three to five business days to pack** (decided
+  2026-11-20), stated on every made-to-order listing, and matching the shipping policy and schema
+  `handlingTime`.
+- **A faster paid option cannot outrun the making.** If the house offers an expedited method, it buys
+  faster post, not faster making — and must say so. Promising to pack in a day what takes three to five
+  is the one claim a buyer who paid extra will always test.
 - What we must never do: `InStock` on a piece we cannot ship. It is the fastest way to lose both a
   customer and a feed.
 

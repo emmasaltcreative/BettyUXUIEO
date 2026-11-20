@@ -15,7 +15,7 @@ explicit APPROVE per item — a decision answered an open question, it did not a
 
 | ID | Decision needed | Blocks | Status |
 |---|---|---|---|
-| **E-8** | **What ship window can the house actually hold for a made-to-order piece?** Needed because fulfilment is demand-driven (E-3) while the policy promises 3–5 business days and a method is named "Express — packed the next business day" | A-5, A-7, B-5 `handlingTime` | PENDING |
+| **E-9** | **Express: what do we do?** With a 3–5 day making window, `Express — packed the next business day` at $15.00 cannot be honoured, and the policy's "arrives in 2–4 business days" would really be 4–8. **(A)** rename to "first in the queue" and state 4–8 *(recommended, copy-only)* · **(B)** retire Express until stock exists · **(C)** genuinely pack Express in one business day. **Last item blocking the A-5 / A-7 / B-5 batch** | A-5, A-7, B-5 | PENDING |
 | **E-4** | **A Woman Remembered — which scent pyramid is correct?** Shopify SEO says "rose, jasmine, aged iris over sandalwood and soft musk"; `llms.txt` says "luminous pear, warm amber, intimate musk, a trace of rose and jasmine" | C-10, part of A-2 | PENDING |
 | **E-6** | **Social profile URLs for `sameAs`** (Instagram / Pinterest / TikTok / other). Main signal that "Oh Betty Jaletti" and "Maison Betty Jaletti" are one business | B-6 | PENDING |
 
@@ -28,6 +28,7 @@ explicit APPROVE per item — a decision answered an open question, it did not a
 | E-3 | **Overselling is selling, then fulfilling on demand** (made to order) | ANSWERED 2026-11-20 — A-5 → `BackOrder`; raises A-7 and E-8 |
 | E-5 | **Voice-forward homepage copy** | ANSWERED 2026-11-20 — A-1 copy finalised |
 | E-7 | **The Advent is parked** | ANSWERED 2026-11-20 — B-10 closed |
+| E-8 | **Made-to-order window: 3–5 business days** | ANSWERED 2026-11-20 — matches the existing policy, so Standard needs no rewrite and schema `handlingTime` is confirmed. Raises E-9 for Express |
 
 ## Critical
 
@@ -38,8 +39,9 @@ explicit APPROVE per item — a decision answered an open question, it did not a
 | A-2 | Strip all prices/stock from `llms.txt`; add the missing gloves | `$94.00` → removed (real: $91.00); `$71.00` → removed (real: **$43.00**, a 65% overstatement); `Two pieces` → `Three pieces`; gloves entry added | §2 | PENDING |
 | A-3 | Product schema emits a third-party brand on a house piece | `vendor: Glove Story` → `vendor: Maison Betty Jaletti` on The Out-the-Door Gloves | §5a | PENDING |
 | A-4 | **Add one named object + hub link + sibling link to each of the 15 letters.** Zero product links today. Highest commercial value in this queue | 0 product links → 1 named object per letter; 9 of 15 point to `/pages/waitlist`, 6 to live products | §6 | PENDING |
-| A-5 | Make `availability` honest — decided: made to order | `InStock` on stock of −5 / −12 / 0 → `BackOrder` via Liquid, flipping automatically | §5b | PENDING *(needs E-8)* |
-| **A-7** | **Made-to-order needs a stated window on the listing** | Policy "3–5 business days" and method "Express — packed the next business day" vs demand-driven fulfilment → one house-voice line per listing + matching policy clause + real `handlingTime` | §7 | PENDING *(needs E-8)* |
+| A-5 | Make `availability` honest — decided: made to order | `InStock` on stock of −5 / −12 / 0 → `BackOrder` via Liquid, flipping automatically | §5b | PENDING *(ready; Express copy needs E-9)* |
+| **A-7** | **Made-to-order window — decided: 3–5 business days** | Add listing line *"Cut to order. Yours is made when you order it, and leaves the house in three to five business days."* + a `Made to order` clause in the shipping policy. Standard needs no change; `handlingTime` 3–5 confirmed | §7a–c | PENDING |
+| **A-8** | **Express cannot be honoured at a 3–5 day making window** | `Express — packed the next business day`, "arrives in 2–4 business days", $15.00 → really 4–8 business days. Three options in §7d | §7d | PENDING *(needs E-9)* |
 
 ## SEO
 
@@ -65,7 +67,7 @@ explicit APPROVE per item — a decision answered an open question, it did not a
 
 | ID | Change | Fix | Status |
 |---|---|---|---|
-| B-5 | Declare `hasMerchantReturnPolicy` + `shippingDetails` **once** at Organization level; add `mpn` = SKU. Return fees split to match policy: buyer pays on remorse, house pays on defect | §4, §5c | PENDING *(`handlingTime` needs E-8)* |
+| B-5 | Declare `hasMerchantReturnPolicy` + `shippingDetails` **once** at Organization level; add `mpn` = SKU. Return fees split to match policy: buyer pays on remorse, house pays on defect. `handlingTime` 3–5 confirmed | §4, §5c | PENDING |
 | B-6 | Add `sameAs`, `email`, `address`, `areaServed: United States` to Organization schema | §4 | PENDING *(needs E-6)* |
 | B-7 | Rewrite stale `Organization.description` — omits the gloves and Edition II | §4 | PENDING |
 | C-1 | Set up Merchant Center with free listings — entry to Google AI Mode shopping, free. Needs B-8 + A-5 first | — | PENDING |
