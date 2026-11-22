@@ -166,6 +166,39 @@ A fact about this store currently lives in up to six surfaces:
 **Why this is the top priority:** fancy schema on a product whose price disagrees with the brand's own
 agent file is worse than no schema. It teaches every engine that our data is unreliable.
 
+### 3.1 Facts live in data, never in a theme **[house, added 2026-11-22]**
+
+Theme files **fork**. Every theme duplicate gets its own copy of every file, so a correction made in
+one theme is invisible to the next unless that next theme was forked from it. With eleven `OBJ v5.x`
+themes in the store, one wrong fork silently reverts weeks of work. This is not a tidiness issue; it
+is the main reason the same error keeps coming back.
+
+**The rule:** if it is a *fact*, it belongs in store data. If it is *presentation*, it belongs in the
+theme. Store data never forks.
+
+| Lives in store data (survives every theme) | Lives in the theme (forks) |
+|---|---|
+| Product and collection SEO fields, descriptions | Liquid templates and sections |
+| Metafields and metaobjects | Section **settings** in template JSON |
+| Article bodies | `settings_data.json` |
+| Pages, policies, menus | Snippets, assets, locales |
+| Delivery method names, markets | |
+
+**What this means in practice:**
+- Any copy a person will edit again — a hero line, an eyebrow, an edition's status, `llms.txt`
+  content, the facts inside schema — goes in a **metafield or metaobject**, with the theme rendering it.
+- The theme then holds only *plumbing*: written once, rarely touched. Schema Liquid and the
+  availability conditional are fine there, because nobody edits them.
+- **Section settings are the trap.** They look like content and behave like theme code. The
+  "Open for preorder" copy on the Reading Hour collection is section settings, which is exactly why
+  it outlived three corrections to the collection's own fields.
+
+**Theme hygiene, alongside:**
+1. Always duplicate from the **current live theme**. Never from an older version.
+2. Keep one or two development themes. Delete the rest, so a wrong fork is not possible.
+3. Prefer Shopify's **GitHub integration** (Online Store → Themes → Add theme → Connect from GitHub):
+   theme code in a repo, each theme a branch, changes merged rather than overwritten.
+
 ---
 
 ## Part 4 — SEO layer
