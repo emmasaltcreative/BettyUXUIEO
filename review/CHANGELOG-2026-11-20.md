@@ -18,7 +18,9 @@ for Emma to preview and publish. Shopify Admin data has no staging layer, so tho
 | 3 | B-9 | `frontpage` collection SEO title + meta set (were empty) | **DONE** |
 | 4 | E-4 | Scent pyramid reconciled across 6 surfaces: product description, SEO title/meta, `global.description_tag`, `custom.object_copy`, `custom.materials`. Added an explicit **The Notes** bullet so the pyramid is extractable | **DONE** |
 | 5 | A-8 | Express delivery method renamed `Express — packed the next business day` → **`Express — first in the queue`**, with a description saying it buys a faster journey, not a faster making | **DONE** |
-| 7 | A-4 | **Letter closing blocks applied (8 of 15 so far):** `what-does-numbered-edition-mean`, `verify-limited-edition-genuine`, `are-limited-edition-home-goods-worth-it`, `limited-vs-open-edition-vs-one-of-a-kind`, `collecting-numbered-editions-beginners`, `slow-living-vs-minimalism`, `slow-living-home-small-budget`, `slow-living-autumn-winter`. All 15 blocks are written in `playbook/paste/letter-closing-blocks.html` | **IN PROGRESS** |
+| 7 | A-4 | **All 15 letter closing blocks applied and verified live.** Six point at Edition I (buyable); nine name the Edition II piece and send the reader to the waitlist. Verified by fetching all 15 letters: `letter-object` present on 15/15 | **DONE** |
+| 8 | C-4 | `reading-nook-essentials` given the missing **The short answer** block, so all 15 letters now follow the answer-first pattern | **DONE** |
+| 9 | A-7 | **Corrected delivery of the wait window.** The line first went into `descriptionHtml`, which this theme does not render — it reached only the schema description, invisible to customers. Moved into `custom.making_note`, which the theme does render. Verified visible on all three product pages | **DONE** |
 | 6 | A-7 | **The Wait** line added to all 3 active products, worded per piece: tote *"made up to order… chosen, knotted and packed by the house"*; perfume *"blended and filled to order, in small batches"*; gloves *"brought in to order… checked over and packed by the house"*. All state three to five business days | **DONE** |
 
 ### 2 — before / after (A-6a)
@@ -61,6 +63,23 @@ Found exactly one profile on the live site: `https://www.instagram.com/ohbettyja
 TikTok, Facebook or YouTube link exists anywhere on the storefront, so `sameAs` carries one URL rather
 than invented placeholders.
 
+### A-3 · **Retracted entirely. The finding was false from the start.**
+I reported, twice, that the gloves' Product schema emitted `"brand":"Glove Story"`, splitting the brand
+entity — first recommending the `vendor` be overwritten, then that `vendor` stay and `Offer.seller` be added.
+
+Both were built on a bad read. Parsing the actual `application/ld+json` blocks shows the real Product
+schema on **all three** products emits:
+```json
+"brand": { "@type": "Brand", "name": "Oh Betty Jaletti" }
+```
+The theme hardcodes the shop name and never touches `vendor`. The `"Maison Betty Jaletti"` and
+`"Glove Story"` strings I matched live in Shopify's **web-pixel analytics payload** (alongside
+`productGid` and `nonInteractive`) — tracking data, not structured data. No search engine ever read them
+as brand.
+
+**Nothing needed fixing, and nothing was changed.** My original grep matched any `"brand":` string on the
+page rather than the schema block; the lesson is to parse the JSON-LD, not grep the HTML.
+
 ### B-2 · **I was wrong again — the `$150` Express threshold is real. Reversed.**
 I reported that `llms.txt` invented an Express threshold the policy did not have. The live delivery
 method carries the condition *"On orders of $150 or more"*, so `llms.txt` was **accurate** and the
@@ -96,3 +115,24 @@ perfume *"blended and bottled by hand at the house — this one we make ourselve
 | C-1 | Merchant Center + free listings | Account setup |
 | C-2 | Verify Sales channels → Agentic → ChatGPT | Read-only check in admin |
 | D-4 | Search Console + Bing Webmaster | Account setup |
+
+
+---
+
+## Confirmed still outstanding — all blocked on theme access
+
+Theme file writes to the live theme are blocked by design, and `theme_bash` returned
+*"This connector requires additional permissions"*, so no theme work was possible. Verified against the
+live JSON-LD, these remain true:
+
+| ID | Gap | Verified state |
+|---|---|---|
+| A-5 | `availability` | `InStock` on all three, with stock at −5 / −12 / 0. Needs the `BackOrder` conditional |
+| A-6b | Reading Hour page body | Still says `Open for preorder` and `charged today` in 2 places. **Section settings — see Playbook 3.1** |
+| B-4 | `BlogPosting` schema | No JSON-LD on any letter; only `Product` + `BreadcrumbList` exist anywhere |
+| B-5 | Merchant fields | `mpn: null`, `gtin13: null`, no `hasMerchantReturnPolicy`, no `shippingDetails` |
+| B-6/B-7 | Organization schema | No `sameAs` (Instagram URL found: `https://www.instagram.com/ohbettyjaletti/`), stale description |
+| A-2 | `llms.txt` prices | Still states $94 / $71 against real $91 / $43, and omits the gloves |
+
+**Do Playbook 3.1 first.** Moving these facts into metafields/metaobjects before writing the Liquid means
+the corrections survive every future theme publish instead of needing to be made again.
