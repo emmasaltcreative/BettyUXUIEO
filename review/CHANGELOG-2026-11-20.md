@@ -18,6 +18,7 @@ for Emma to preview and publish. Shopify Admin data has no staging layer, so tho
 | 3 | B-9 | `frontpage` collection SEO title + meta set (were empty) | **DONE** |
 | 4 | E-4 | Scent pyramid reconciled across 6 surfaces: product description, SEO title/meta, `global.description_tag`, `custom.object_copy`, `custom.materials`. Added an explicit **The Notes** bullet so the pyramid is extractable | **DONE** |
 | 5 | A-8 | Express delivery method renamed `Express — packed the next business day` → **`Express — first in the queue`**, with a description saying it buys a faster journey, not a faster making | **DONE** |
+| 7 | A-4 | **Letter closing blocks applied (8 of 15 so far):** `what-does-numbered-edition-mean`, `verify-limited-edition-genuine`, `are-limited-edition-home-goods-worth-it`, `limited-vs-open-edition-vs-one-of-a-kind`, `collecting-numbered-editions-beginners`, `slow-living-vs-minimalism`, `slow-living-home-small-budget`, `slow-living-autumn-winter`. All 15 blocks are written in `playbook/paste/letter-closing-blocks.html` | **IN PROGRESS** |
 | 6 | A-7 | **The Wait** line added to all 3 active products, worded per piece: tote *"made up to order… chosen, knotted and packed by the house"*; perfume *"blended and filled to order, in small batches"*; gloves *"brought in to order… checked over and packed by the house"*. All state three to five business days | **DONE** |
 
 ### 2 — before / after (A-6a)
