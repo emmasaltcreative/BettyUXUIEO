@@ -3,10 +3,137 @@
   "last_prune_audit": null,
   "next_prune_audit_due": "2026-12-09",
   "sources": [
-    {"id":"r001","url":"https://baymard.com/learn/ecommerce-ux-audit","title":"Ecommerce UX Audit: How to Find What's Hurting Your Conversion","publisher":"Baymard Institute","category":"UX/UI","reliability":"primary","first_used":"2026-W41","last_confirmed":"2026-10-09","status":"active","takeaway":"Checkout and shipping/tax surprises are leading abandonment drivers; audit against heuristics."},
-    {"id":"r002","url":"https://shopaccino.com/blog/ecommerce-ux-that-converts-the-ultimate-2026-guide","title":"Ecommerce UX That Converts: 2026 Guide","publisher":"Shopaccino","category":"UX/UI","reliability":"vendor","first_used":"2026-W41","last_confirmed":"2026-10-09","status":"active","takeaway":"Reviews near add-to-cart, guest checkout, free-shipping progress."},
-    {"id":"r003","url":"https://helloretail.com/en/blog/geo-for-ecommerce-guide/","title":"GEO for ecommerce: How to get your products cited by AI search engines","publisher":"Hello Retail","category":"GEO","reliability":"vendor","first_used":"2026-W41","last_confirmed":"2026-10-09","status":"active","takeaway":"Complete Product schema, crawlable pages, answer-first copy."},
-    {"id":"r004","url":"https://www.thirdandgrove.com/insights/aeo-geo-playbook-shopify-brands/","title":"AEO/GEO playbook for Shopify brands","publisher":"Third & Grove","category":"AEO/GEO","reliability":"vendor","first_used":"2026-W41","last_confirmed":"2026-10-09","status":"active","takeaway":"Brand-owned FAQs, policies, sizing guides are what AI cites."},
-    {"id":"r005","url":"https://www.sparq.ai/blogs/generative-engine-optimization-shopify","title":"Generative Engine Optimization for Shopify","publisher":"Sparq","category":"GEO","reliability":"vendor","first_used":"2026-W41","last_confirmed":"2026-10-09","status":"active","takeaway":"Allow AI crawlers (OAI-SearchBot etc.); claims unverified by OpenAI docs."}
+    {
+      "id": "r001",
+      "url": "https://baymard.com/learn/ecommerce-ux-audit",
+      "title": "Ecommerce UX Audit: How to Find What's Hurting Your Conversion",
+      "publisher": "Baymard Institute",
+      "category": "UX/UI",
+      "reliability": "primary",
+      "first_used": "2026-W41",
+      "last_confirmed": "2026-10-09",
+      "status": "active",
+      "takeaway": "Checkout and shipping/tax surprises are leading abandonment drivers; audit against heuristics."
+    },
+    {
+      "id": "r002",
+      "url": "https://shopaccino.com/blog/ecommerce-ux-that-converts-the-ultimate-2026-guide",
+      "title": "Ecommerce UX That Converts: 2026 Guide",
+      "publisher": "Shopaccino",
+      "category": "UX/UI",
+      "reliability": "vendor",
+      "first_used": "2026-W41",
+      "last_confirmed": "2026-10-09",
+      "status": "active",
+      "takeaway": "Reviews near add-to-cart, guest checkout, free-shipping progress."
+    },
+    {
+      "id": "r003",
+      "url": "https://helloretail.com/en/blog/geo-for-ecommerce-guide/",
+      "title": "GEO for ecommerce: How to get your products cited by AI search engines",
+      "publisher": "Hello Retail",
+      "category": "GEO",
+      "reliability": "vendor",
+      "first_used": "2026-W41",
+      "last_confirmed": "2026-10-09",
+      "status": "active",
+      "takeaway": "Complete Product schema, crawlable pages, answer-first copy."
+    },
+    {
+      "id": "r004",
+      "url": "https://www.thirdandgrove.com/insights/aeo-geo-playbook-shopify-brands/",
+      "title": "AEO/GEO playbook for Shopify brands",
+      "publisher": "Third & Grove",
+      "category": "AEO/GEO",
+      "reliability": "vendor",
+      "first_used": "2026-W41",
+      "last_confirmed": "2026-10-09",
+      "status": "active",
+      "takeaway": "Brand-owned FAQs, policies, sizing guides are what AI cites."
+    },
+    {
+      "id": "r005",
+      "url": "https://www.sparq.ai/blogs/generative-engine-optimization-shopify",
+      "title": "Generative Engine Optimization for Shopify",
+      "publisher": "Sparq",
+      "category": "GEO",
+      "reliability": "vendor",
+      "first_used": "2026-W41",
+      "last_confirmed": "2026-10-09",
+      "status": "active",
+      "takeaway": "Allow AI crawlers (OAI-SearchBot etc.); claims unverified by OpenAI docs."
+    },
+    {
+      "id": "r006",
+      "url": "https://shopify.dev/docs/agents",
+      "title": "Build commerce agents with UCP",
+      "publisher": "Shopify (official)",
+      "category": "GEO/Agentic",
+      "reliability": "primary",
+      "first_used": "2026-11-22",
+      "last_confirmed": "2026-11-22",
+      "status": "active",
+      "takeaway": "Shopify serves UCP discovery (/.well-known/ucp), an MCP endpoint, agents.md and llms.txt automatically; Shop MCP recommended for most agent builds. Confirms agentic surfaces are live by default on Basic."
+    },
+    {
+      "id": "r007",
+      "url": "https://www.semrush.com/blog/ai-traffic-quality/",
+      "title": "AI traffic quality: look past benchmarks and measure ROI",
+      "publisher": "Semrush",
+      "category": "GEO",
+      "reliability": "vendor-own-data",
+      "first_used": "2026-11-22",
+      "last_confirmed": "2026-11-22",
+      "status": "active",
+      "takeaway": "AI referrals are a small share of visits (Semrush ~0.14%, Ahrefs ~0.43%) but higher value per visit; advice is to measure your own AI referral ROI rather than trust category benchmarks."
+    },
+    {
+      "id": "r008",
+      "url": "https://citeladder.com/blog/ai-referral-traffic-statistics-2026",
+      "title": "AI referral traffic statistics 2026: 16 studies",
+      "publisher": "CiteLadder",
+      "category": "GEO",
+      "reliability": "low-secondary",
+      "first_used": "2026-11-22",
+      "last_confirmed": "2026-11-22",
+      "status": "active",
+      "takeaway": "Roundup of 16 studies; AI referral share clusters 0.1-1% of traffic. Use only as a directional sanity check on GEO expectations; no primary data."
+    },
+    {
+      "id": "r009",
+      "url": "https://vwo.com/blog/ecommerce-product-page-design/",
+      "title": "Ecommerce product page best practices 2026",
+      "publisher": "VWO",
+      "category": "UX/UI",
+      "reliability": "vendor-directional",
+      "first_used": "2026-11-22",
+      "last_confirmed": "2026-11-22",
+      "status": "active",
+      "takeaway": "PDP essentials: multiple zoomable images and video, ratings near the title, visible return/shipping terms, mobile sticky add-to-cart, collapsed detail sections. Lift percentages are second-hand; treat as directional."
+    },
+    {
+      "id": "r010",
+      "url": "https://prolaunch.net/guides/dtc-brand-first-sales",
+      "title": "Getting your first 100 orders for a DTC brand",
+      "publisher": "ProLaunch",
+      "category": "Growth/0-to-1",
+      "reliability": "vendor-directional",
+      "first_used": "2026-11-22",
+      "last_confirmed": "2026-11-22",
+      "status": "active",
+      "takeaway": "0-to-1 pattern: one customer problem, one promise, one hero product; first orders come from named people and nano-creator seeding; email every one of the first 100 buyers personally to collect proof and fix defects."
+    },
+    {
+      "id": "r011",
+      "url": "https://7seamarketing.com/blogs/guides/ai-overviews-ecommerce",
+      "title": "AI Overviews and ecommerce traffic: 2026 data + plan",
+      "publisher": "7Sea Marketing",
+      "category": "AEO/GEO",
+      "reliability": "low-secondary",
+      "first_used": "2026-11-22",
+      "last_confirmed": "2026-11-22",
+      "status": "active",
+      "takeaway": "Cites a Visibility Labs study of 94 ecommerce brands finding ChatGPT referrals converting ~31% above non-branded organic. Secondary; unverified against the original."
+    }
   ]
 }
