@@ -134,5 +134,11 @@ live JSON-LD, these remain true:
 | B-6/B-7 | Organization schema | No `sameAs` (Instagram URL found: `https://www.instagram.com/ohbettyjaletti/`), stale description |
 | A-2 | `llms.txt` prices | Still states $94 / $71 against real $91 / $43, and omits the gloves |
 
-**Do Playbook 3.1 first.** Moving these facts into metafields/metaobjects before writing the Liquid means
-the corrections survive every future theme publish instead of needing to be made again.
+**Update 2026-11-23 — theme work is now done and staged.** Theme *writes* turned out to be permitted on
+unpublished themes even though `theme_bash` is blocked, so all of the above except A-5's wiring is staged in
+**`OBJ v5.35 · SEO-AEO-GEO corrections`**, forked from the then-live `v5.34`. See `review/THEME-HANDOVER.md`
+for what changed, the one line left to wire, and the stale `v5.33` fork that must be deleted.
+
+Playbook 3.1 was applied rather than deferred: `agents.md` now generates its piece list from the live
+catalogue instead of hardcoding prices, and the Organization facts read from two new shop metafields
+(`custom.org_description`, `custom.org_same_as`). Those are data, so they survive every future fork.
